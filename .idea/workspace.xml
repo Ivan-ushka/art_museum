@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8cb6a2a-db8d-4e35-83f4-da9c344402a9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="e8cb6a2a-db8d-4e35-83f4-da9c344402a9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -40,9 +38,10 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "eslint.code.style.apply.dismiss": "true",
-    "git-widget-placeholder": "feature/setup-project",
+    "git-widget-placeholder": "develop",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "D:/WebStormProjects/art_museum",
+    "last_opened_file_path": "D:/WebStormProjects/art_museum/src/assets",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.stylelint": "true",
@@ -64,7 +63,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WebStormProjects\art_museum\src\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebStormProjects\art_museum\src" />
       <recent name="D:\WebStormProjects\art_museum" />
     </key>
   </component>
@@ -137,7 +140,8 @@
       <workItem from="1728637148834" duration="12198000" />
       <workItem from="1728658458385" duration="6899000" />
       <workItem from="1728665842135" duration="42000" />
-      <workItem from="1728668212960" duration="6184000" />
+      <workItem from="1728668212960" duration="12981000" />
+      <workItem from="1728747708596" duration="5450000" />
     </task>
     <servers />
   </component>
@@ -155,7 +159,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature/setup-project" />
+                        <option value="develop" />
                       </list>
                     </value>
                   </entry>
