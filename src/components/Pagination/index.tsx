@@ -7,58 +7,23 @@ interface PaginationProps {
    handleChangePage: (page: number) => void;
 }
 
-const getVisiblePages = (currentPage: number, totalPages: number) => {
-   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
-   const totalPagesToShow = 5;
-   let startPage = 1;
-
-   if (currentPage > Math.floor(totalPagesToShow / 2) + 1) {
-      startPage = currentPage - Math.floor(totalPagesToShow / 2);
-   }
-
-   if (startPage + totalPagesToShow > totalPages) {
-      startPage = totalPages - totalPagesToShow + 1;
-   }
-
-   const visiblePages = pageNumbers.slice(
-      startPage - 1,
-      startPage - 2 + totalPagesToShow,
-   );
-   const first = visiblePages[0];
-   const last = visiblePages[visiblePages.length - 1];
-
-   if (first === 2) {
-      visiblePages.unshift(1);
-   }
-
-   if (first >= 3) {
-      visiblePages.shift();
-      visiblePages.unshift(-1);
-      visiblePages.unshift(1);
-   }
-
-   if (last + 3 <= totalPages) {
-      visiblePages.push(-1);
-      visiblePages.push(totalPages);
-   }
-
-   if (last >= totalPages - 2) {
-      if (last === totalPages - 2) {
-         visiblePages.push(totalPages - 1);
-         visiblePages.push(totalPages);
-      } else {
-         visiblePages.push(totalPages);
-      }
-   }
-
-   return visiblePages;
-};
-
 export const Pagination = ({
    currentPage,
    totalPages,
    handleChangePage,
 }: PaginationProps) => {
+   const getVisiblePages = (currentPage: number, totalPages: number) => {
+      if (currentPage < 4) {
+         return [1, 2, 3, 4, -1, totalPages];
+      }
+
+      if (currentPage > totalPages - 3) {
+         return [1, -1, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+      }
+
+      return [1, -1, currentPage - 1, currentPage, currentPage + 1, -1, totalPages];
+   };
+
    const visiblePages = getVisiblePages(currentPage, totalPages);
 
    return (
@@ -68,15 +33,17 @@ export const Pagination = ({
                &lt;
             </ArrowButton>
          )}
-         {visiblePages.map((pageNumber: number) => (
+
+         {visiblePages.map((pageNumber: number, index: number) => (
             <PageButton
-               key={pageNumber}
+               key={index}
                onClick={() => handleChangePage(pageNumber)}
-               active={pageNumber === currentPage}
+               $active={pageNumber === currentPage}
             >
                {pageNumber === -1 ? '...' : pageNumber}
             </PageButton>
          ))}
+
          {currentPage < totalPages && (
             <ArrowButton onClick={() => handleChangePage(currentPage + 1)}>
                &gt;

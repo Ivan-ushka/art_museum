@@ -13,7 +13,7 @@ export const PaginationWrapper = styled.div`
    }
 `;
 
-export const PageButton = styled.button<{ active: boolean }>`
+export const PageButton = styled.button<{ $active: boolean }>`
    font-family:
       Lexend Deca,
       serif;
@@ -21,9 +21,9 @@ export const PageButton = styled.button<{ active: boolean }>`
    margin: 0 5px;
    border: none;
    border-radius: 5px;
-   background-color: ${({ active }) =>
-      active ? `${colors.secondary}` : `${colors.white}`};
-   color: ${({ active }) => (active ? `${colors.white}` : `${colors.black}`)};
+   background-color: ${({ $active }) =>
+      $active ? `${colors.secondary}` : `${colors.white}`};
+   color: ${({ $active }) => ($active ? `${colors.white}` : `${colors.black}`)};
    cursor: pointer;
    outline: none;
 

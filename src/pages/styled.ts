@@ -21,10 +21,10 @@ export const Logo = styled.img`
    }
 `;
 
-export const MainContainer = styled.div<{ backgroundColor: string }>`
+export const MainContainer = styled.div<{ $backgroundColor: string }>`
    margin: 0 auto;
    padding: 16px 15vw;
-   background: ${({ backgroundColor }) => backgroundColor || colors.white};
+   background: ${({ $backgroundColor }) => $backgroundColor || colors.white};
 `;
 
 export const CenteredFlex = styled.div`
@@ -51,6 +51,17 @@ export const YellowText = styled.span`
    color: ${colors.yellow};
 `;
 
-export const Padding = styled.div<{ padding: string }>`
-   padding: ${({ padding }) => padding};
+export const Padding = styled.div<{ $padding: string }>`
+   padding: ${({ $padding }) => $padding};
+`;
+
+export const NoResultFound = styled.div`
+   padding: 150px;
+   text-align: center;
+   font-size: 32px;
+
+   @media (max-width: 760px) {
+      padding: 50px;
+      font-size: 16px;
+   }
 `;

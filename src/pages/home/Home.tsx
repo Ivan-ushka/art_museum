@@ -10,7 +10,7 @@ const Home = () => {
    return (
       <>
          <Header />
-         <MainContainer backgroundColor={colors.background}>
+         <MainContainer $backgroundColor={colors.background}>
             <SearchArts />
             <RandomArts />
          </MainContainer>

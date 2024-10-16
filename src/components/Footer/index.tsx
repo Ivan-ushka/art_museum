@@ -6,7 +6,7 @@ import { colors } from '../../constants/colors';
 
 export const Footer = () => {
    return (
-      <MainContainer backgroundColor={colors.white}>
+      <MainContainer $backgroundColor={colors.white}>
          <BetweenFlex>
             <Logo src={museumLogo} alt='museumLogo' />
             <Logo src={modsenLogo} alt='modsenLogo' />

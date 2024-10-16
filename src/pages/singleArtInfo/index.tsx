@@ -56,7 +56,7 @@ export const SingleArtInfo = () => {
    return (
       <>
          <Header />
-         <MainContainer backgroundColor={colors.background}>
+         <MainContainer $backgroundColor={colors.background}>
             <ArtInfoContainer>
                <ArtInfoImageWrap>
                   <ArtInfoImage src={art.imageUrl} alt='art title' />

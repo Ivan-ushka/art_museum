@@ -27,7 +27,7 @@ export const Header = () => {
    };
 
    return (
-      <MainContainer backgroundColor={colors.gradient}>
+      <MainContainer $backgroundColor={colors.gradient}>
          <BetweenFlex>
             <Logo src={museumLogo} alt='museumLogo' />
             <MenuDesktop>
@@ -49,7 +49,7 @@ export const Header = () => {
             </MenuDesktop>
 
             <MenuMobile src={burgerMenu} alt='burgerMenu' onClick={toggleDropdown} />
-            <DropdownMenu isOpen={isOpen}>
+            <DropdownMenu $isOpen={isOpen}>
                <Link to='/'>
                   <DropdownMenuItem>Home</DropdownMenuItem>
                </Link>

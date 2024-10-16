@@ -4,7 +4,7 @@ import { GridContainer } from './styled';
 import { Title } from '../Title';
 import { LargeArtCard } from '../Cards/LargeArtCard';
 import { Pagination } from '../Pagination';
-import { CenteredFlex, Padding } from '../../pages/styled';
+import { CenteredFlex, NoResultFound, Padding } from '../../pages/styled';
 import { getSearchArtList } from '../../http/ArtActions';
 import { SearchInput } from '../SearchInput';
 import useDebounce from '../../hooks/useDebounce';
@@ -68,15 +68,18 @@ export const SearchArts: React.FC = () => {
          <Title preTitle={'Topics for you'} title={'Our special gallery'} />
          {isLoading ? (
             <CenteredFlex>
-               <Padding padding={'14px'}>
-                  <Loader size={200} />
+               <Padding $padding={'190px'}>
+                  <Loader size={100} />
                </Padding>
             </CenteredFlex>
-         ) : (
+         ) : searchArtList && searchArtList.length > 0 ? (
             <GridContainer>
-               {searchArtList.length &&
-                  searchArtList.map(art => <LargeArtCard art={art} key={art.id} />)}
+               {searchArtList.map(art => (
+                  <LargeArtCard art={art} key={art.id} />
+               ))}
             </GridContainer>
+         ) : (
+            <NoResultFound>No results found</NoResultFound>
          )}
          <Pagination
             currentPage={currentPage}

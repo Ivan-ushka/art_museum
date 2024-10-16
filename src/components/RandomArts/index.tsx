@@ -18,9 +18,10 @@ export const RandomArts: React.FC = () => {
          try {
             const response = await getArtList();
             setArtList(response);
-            setIsLoading(false);
          } catch (e) {
             setError(e as Error);
+         } finally {
+            setIsLoading(false);
          }
       })();
    }, []);
@@ -32,8 +33,8 @@ export const RandomArts: React.FC = () => {
          <Title preTitle={'Here some more'} title={'Other works for you'} />
          {isLoading ? (
             <CenteredFlex>
-               <Padding padding={'14px'}>
-                  <Loader size={200} />
+               <Padding $padding={'200px'}>
+                  <Loader size={100} />
                </Padding>
             </CenteredFlex>
          ) : (

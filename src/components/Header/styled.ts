@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../constants/colors';
 
-export const HeaderContainer = styled.div`
-   margin: 0 auto;
-   padding: 16px 10vw;
-   background: ${colors.gradient};
-`;
-
 export const MenuMobile = styled.img`
    display: none;
    cursor: pointer;
@@ -26,8 +20,8 @@ export const MenuMobile = styled.img`
    }
 `;
 
-export const DropdownMenu = styled.div<{ isOpen: boolean }>`
-   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+export const DropdownMenu = styled.div<{ $isOpen: boolean }>`
+   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
    position: absolute;
    right: 0;
    top: 65px;
@@ -74,7 +68,7 @@ export const MenuDesktopImage = styled.img`
    width: 24px;
 `;
 
-export const MenuDesktopText = styled.text`
+export const MenuDesktopText = styled.div`
    font-family: 'Inter', sans-serif;
    font-weight: 400;
    font-size: 16px;
