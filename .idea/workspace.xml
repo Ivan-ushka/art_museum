@@ -4,7 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8cb6a2a-db8d-4e35-83f4-da9c344402a9" name="Changes" comment="" />
+    <list default="true" id="e8cb6a2a-db8d-4e35-83f4-da9c344402a9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/loop.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/museum.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cards/CardDescription/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cards/CardDescription/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cards/LargeArtCard/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cards/LargeArtCard/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cards/SmallArtCard/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cards/SmallArtCard/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pagination/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Pagination/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RandomArts/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RandomArts/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchArts/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchArts/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchInput/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchInput/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Title/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Title/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constants/http.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useDebounce.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/http/ArtActions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/http/ArtService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/http/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/http/interfaces.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/styled.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +50,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -34,32 +71,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "eslint.code.style.apply.dismiss": "true",
-    "git-widget-placeholder": "develop",
-    "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "D:/WebStormProjects/art_museum/src/assets",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "npm.lent.executor": "Run",
-    "npm.lint-fix.executor": "Run",
-    "npm.lint.executor": "Run",
-    "npm.precommit.executor": "Run",
-    "npm.prepare.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "D:\\WebStormProjects\\art_museum\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "D:\\WebStormProjects\\art_museum\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;eslint.code.style.apply.dismiss&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/home-page-and-api&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebStormProjects/art_museum/src/assets&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.lent.executor&quot;: &quot;Run&quot;,
+    &quot;npm.lint-fix.executor&quot;: &quot;Run&quot;,
+    &quot;npm.lint.executor&quot;: &quot;Run&quot;,
+    &quot;npm.precommit.executor&quot;: &quot;Run&quot;,
+    &quot;npm.prepare.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\WebStormProjects\\art_museum\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStormProjects\\art_museum\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="RecentsManager">
@@ -67,11 +104,12 @@
       <recent name="D:\WebStormProjects\art_museum\src\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebStormProjects\art_museum\src\components\Cards\CardDescription" />
       <recent name="D:\WebStormProjects\art_museum\src" />
       <recent name="D:\WebStormProjects\art_museum" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.precommit">
+  <component name="RunManager" selected="npm.lent">
     <configuration name="lent" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -114,9 +152,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lent" />
         <item itemvalue="npm.precommit" />
         <item itemvalue="npm.prepare" />
-        <item itemvalue="npm.lent" />
         <item itemvalue="npm.lint" />
       </list>
     </recent_temporary>
@@ -142,6 +180,13 @@
       <workItem from="1728665842135" duration="42000" />
       <workItem from="1728668212960" duration="12981000" />
       <workItem from="1728747708596" duration="5450000" />
+      <workItem from="1728753284408" duration="11555000" />
+      <workItem from="1728817700852" duration="2347000" />
+      <workItem from="1728820119520" duration="26364000" />
+      <workItem from="1728855477204" duration="4841000" />
+      <workItem from="1728904306275" duration="5039000" />
+      <workItem from="1728910925988" duration="7354000" />
+      <workItem from="1728928343108" duration="4265000" />
     </task>
     <servers />
   </component>

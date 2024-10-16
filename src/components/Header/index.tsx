@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import {
-   Container,
-   Logo,
-   Wrapper,
    MenuDesktop,
    MenuMobile,
    DropdownMenu,
@@ -16,6 +13,8 @@ import burgerMenu from '../../assets/burgerMenu.png';
 import home from '../../assets/home.svg';
 import bookmark from '../../assets/bookmark.svg';
 import { Link, useLocation } from 'react-router-dom';
+import { BetweenFlex, Logo, MainContainer } from '../../pages/styled';
+import { colors } from '../../constants/colors';
 
 export const Header = () => {
    const location = useLocation();
@@ -28,8 +27,8 @@ export const Header = () => {
    };
 
    return (
-      <Wrapper>
-         <Container>
+      <MainContainer backgroundColor={colors.gradient}>
+         <BetweenFlex>
             <Logo src={museumLogo} alt='museumLogo' />
             <MenuDesktop>
                {!isHome && (
@@ -58,7 +57,7 @@ export const Header = () => {
                   <DropdownMenuItem>Your favorites</DropdownMenuItem>
                </Link>
             </DropdownMenu>
-         </Container>
-      </Wrapper>
+         </BetweenFlex>
+      </MainContainer>
    );
 };

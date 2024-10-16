@@ -1,15 +1,16 @@
 import React from 'react';
-import { Container, Logo, Wrapper } from './styled';
 import museumLogo from '../../assets/museumLogoDark.svg';
 import modsenLogo from '../../assets/logoModsen.svg';
+import { BetweenFlex, Logo, MainContainer } from '../../pages/styled';
+import { colors } from '../../constants/colors';
 
 export const Footer = () => {
    return (
-      <Wrapper>
-         <Container>
+      <MainContainer backgroundColor={colors.white}>
+         <BetweenFlex>
             <Logo src={museumLogo} alt='museumLogo' />
             <Logo src={modsenLogo} alt='modsenLogo' />
-         </Container>
-      </Wrapper>
+         </BetweenFlex>
+      </MainContainer>
    );
 };
