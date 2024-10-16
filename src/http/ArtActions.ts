@@ -1,6 +1,6 @@
 import ArtService from './ArtService';
 
-import { Art } from './interfaces';
+import { Art, ArtById } from './interfaces';
 
 export const getArtList = async (): Promise<Art[]> => {
    try {
@@ -18,10 +18,16 @@ export const getArtList = async (): Promise<Art[]> => {
    }
 };
 
-export const getArtById = async (id: number) => {
+export const getArtById = async (id: number): Promise<ArtById> => {
    try {
       const response = await ArtService.getArtById(id);
-      return response.data;
+      const data = response.data.data;
+      return {
+         ...data,
+         imageUrl: data.image_id
+            ? `https://www.artic.edu/iiif/2/${data.image_id}/full/387,/0/default.jpg`
+            : '',
+      };
    } catch (error) {
       console.error('Ошибка при получении данных:', error);
       throw error;

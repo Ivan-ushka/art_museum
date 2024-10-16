@@ -5,42 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8cb6a2a-db8d-4e35-83f4-da9c344402a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/loop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/museum.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Cards/CardDescription/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Cards/CardDescription/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Cards/LargeArtCard/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Cards/LargeArtCard/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Cards/SmallArtCard/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Cards/SmallArtCard/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Loader/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Loader/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pagination/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pagination/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/RandomArts/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/RandomArts/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchArts/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchArts/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchInput/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchInput/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Title/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Title/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/http.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useDebounce.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/http/ArtActions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/http/ArtService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/http/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/http/interfaces.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/styled.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/singleArtInfo/styled.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/styled.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styled.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppRouter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cards/LargeArtCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/LargeArtCard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cards/SmallArtCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/SmallArtCard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/ArtActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/ArtActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/artworkInfo/ArtworkInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/singleArtInfo/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +158,7 @@
       <workItem from="1728904306275" duration="5039000" />
       <workItem from="1728910925988" duration="7354000" />
       <workItem from="1728928343108" duration="4265000" />
+      <workItem from="1729092530881" duration="1284000" />
     </task>
     <servers />
   </component>
