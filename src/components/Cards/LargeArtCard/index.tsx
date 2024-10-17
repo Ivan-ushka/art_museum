@@ -20,11 +20,7 @@ export const LargeArtCard: FC<CardProps> = ({ art }) => {
             )}
          </Link>
          <TopContainer>
-            <CardDescription
-               title={art.title}
-               artist_title={art.artist_title}
-               artId={art.id}
-            />
+            <CardDescription art={art} />
          </TopContainer>
       </LargeCard>
    );

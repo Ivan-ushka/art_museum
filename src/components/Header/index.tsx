@@ -29,7 +29,9 @@ export const Header = () => {
    return (
       <MainContainer $backgroundColor={colors.gradient}>
          <BetweenFlex>
-            <Logo src={museumLogo} alt='museumLogo' />
+            <Link to='/'>
+               <Logo src={museumLogo} alt='museumLogo' />
+            </Link>
             <MenuDesktop>
                {!isHome && (
                   <Link to='/'>

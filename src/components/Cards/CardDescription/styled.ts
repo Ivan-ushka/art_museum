@@ -45,14 +45,16 @@ export const CardFavorites = styled.div`
    justify-content: end;
 `;
 
-export const FavoritesImageWrap = styled.div`
+export const FavoritesImageWrap = styled.div<{ $isInStorage: boolean }>`
    display: flex;
    align-items: center;
    justify-content: center;
    width: 59px;
    height: 59px;
    border-radius: 50%;
-   background-color: ${colors.background};
+   background-color: ${({ $isInStorage }) =>
+      !$isInStorage ? colors.background : colors.backgroundYellow};
+   cursor: pointer;
 
    @media (max-width: 1024px) {
       height: 45px;

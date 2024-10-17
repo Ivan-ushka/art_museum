@@ -19,11 +19,7 @@ export const SmallArtCard: FC<CardProps> = ({ art }) => {
                <SmallCardImage src={museum} alt='museum' />
             )}
          </Link>
-         <CardDescription
-            title={art.title}
-            artist_title={art.artist_title}
-            artId={art.id}
-         />
+         <CardDescription art={art} />
       </SmallCard>
    );
 };

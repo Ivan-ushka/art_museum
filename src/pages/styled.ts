@@ -65,3 +65,23 @@ export const NoResultFound = styled.div`
       font-size: 16px;
    }
 `;
+
+export const HugeTitle = styled.div`
+   font-family: 'Lexend Deca', sans-serif;
+   font-size: 64px;
+   max-width: 684px;
+   font-weight: bold;
+
+   @media (max-width: 1024px) {
+      font-size: 32px;
+   }
+`;
+
+export const FullHeight = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   min-height: 70vh;
+   background: ${colors.background};
+`;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { MainContainer, YellowText } from '../styled';
+import { CenteredFlex, MainContainer, Padding, YellowText } from '../styled';
 import { colors } from '../../constants/colors';
-import { ArtById } from '../../http/interfaces';
+import { Art, ArtById } from '../../http/interfaces';
 import { getArtById } from '../../http/ArtActions';
 import { useParams } from 'react-router-dom';
 import {
@@ -18,7 +18,11 @@ import {
    ArtInfoTitle,
    ArtInfoTitleContainer,
    ArtInfoYear,
+   ZContainer,
 } from './styled';
+import SaveArtButton from '../../components/SaveArtButton';
+import Loader from '../../components/Loader';
+import ErrorMessage from '../../components/ErrorMessage';
 
 interface SingleArtInfoParams {
    artId: string | undefined;
@@ -50,50 +54,60 @@ export const SingleArtInfo = () => {
       })();
    }, [artId]);
 
-   if (!art || isLoading) return <div>Loading...</div>;
-   if (error) return <div>{error.message}</div>;
+   if (error) return <ErrorMessage error={error.message} />;
 
    return (
       <>
          <Header />
          <MainContainer $backgroundColor={colors.background}>
-            <ArtInfoContainer>
-               <ArtInfoImageWrap>
-                  <ArtInfoImage src={art.imageUrl} alt='art title' />
-               </ArtInfoImageWrap>
-               <ArtInfoDetails>
-                  <ArtInfoTitleContainer>
-                     <ArtInfoTitle>{art.title}</ArtInfoTitle>
-                     <ArtInfoArtist>
-                        <YellowText>{art.artist_title}</YellowText>
-                     </ArtInfoArtist>
-                     <ArtInfoYear>
-                        {art.date_start}-{art.date_end}
-                     </ArtInfoYear>
-                  </ArtInfoTitleContainer>
-                  <div>
-                     <ArtInfoOverviewTitle>Overview</ArtInfoOverviewTitle>
-                     <ArtInfoOverview>
-                        <ArtInfoOverviewItem>
-                           <YellowText>Artist nacionality:{'\u00A0'} </YellowText>
-                           <p>{art.place_of_origin}</p>
-                        </ArtInfoOverviewItem>
-                        <ArtInfoOverviewItem>
-                           <YellowText>Dimensions: Sheet:{'\u00A0'}</YellowText>
-                           <p>{art.dimensions}</p>
-                        </ArtInfoOverviewItem>
-                        <ArtInfoOverviewItem>
-                           <YellowText>Credit Line:{'\u00A0'}</YellowText>
-                           <p>{art.credit_line}</p>
-                        </ArtInfoOverviewItem>
-                        <ArtInfoOverviewItem>
-                           <YellowText>Repository:{'\u00A0'}</YellowText>
-                           <p>{art.place_of_origin}</p>
-                        </ArtInfoOverviewItem>
-                     </ArtInfoOverview>
-                  </div>
-               </ArtInfoDetails>
-            </ArtInfoContainer>
+            {!art || isLoading ? (
+               <CenteredFlex>
+                  <Padding $padding={'150px'}>
+                     <Loader size={100} />
+                  </Padding>
+               </CenteredFlex>
+            ) : (
+               <ArtInfoContainer>
+                  <ArtInfoImageWrap>
+                     <ArtInfoImage src={art.imageUrl} alt='art title' />
+                     <ZContainer>
+                        <SaveArtButton art={art as Art} />
+                     </ZContainer>
+                  </ArtInfoImageWrap>
+                  <ArtInfoDetails>
+                     <ArtInfoTitleContainer>
+                        <ArtInfoTitle>{art.title}</ArtInfoTitle>
+                        <ArtInfoArtist>
+                           <YellowText>{art.artist_title}</YellowText>
+                        </ArtInfoArtist>
+                        <ArtInfoYear>
+                           {art.date_start}-{art.date_end}
+                        </ArtInfoYear>
+                     </ArtInfoTitleContainer>
+                     <div>
+                        <ArtInfoOverviewTitle>Overview</ArtInfoOverviewTitle>
+                        <ArtInfoOverview>
+                           <ArtInfoOverviewItem>
+                              <YellowText>Artist nacionality:{'\u00A0'} </YellowText>
+                              <p>{art.place_of_origin}</p>
+                           </ArtInfoOverviewItem>
+                           <ArtInfoOverviewItem>
+                              <YellowText>Dimensions: Sheet:{'\u00A0'}</YellowText>
+                              <p>{art.dimensions}</p>
+                           </ArtInfoOverviewItem>
+                           <ArtInfoOverviewItem>
+                              <YellowText>Credit Line:{'\u00A0'}</YellowText>
+                              <p>{art.credit_line}</p>
+                           </ArtInfoOverviewItem>
+                           <ArtInfoOverviewItem>
+                              <YellowText>Repository:{'\u00A0'}</YellowText>
+                              <p>{art.place_of_origin}</p>
+                           </ArtInfoOverviewItem>
+                        </ArtInfoOverview>
+                     </div>
+                  </ArtInfoDetails>
+               </ArtInfoContainer>
+            )}
          </MainContainer>
          <Footer />
       </>

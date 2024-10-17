@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Art } from '../../http/interfaces';
 import { GridContainer } from './styled';
 import { Title } from '../Title';
@@ -10,15 +10,17 @@ import { SearchInput } from '../SearchInput';
 import useDebounce from '../../hooks/useDebounce';
 import Loader from '../Loader';
 
-export const SearchArts: React.FC = () => {
+interface SearchArtsProps {
+   setError: (error: Error | null) => void;
+}
+
+export const SearchArts: FC<SearchArtsProps> = ({ setError }) => {
    const [searchArtList, setSearchArtList] = useState<Art[]>([]);
 
    const [dataToSearch, setDataToSearch] = useState<string>('');
    const [currentPage, setCurrentPage] = useState<number>(1);
 
    const debouncedSearchTerm = useDebounce(dataToSearch, 200);
-
-   const [error, setError] = useState<Error | null>(null);
    const [isLoading, setIsLoading] = useState<boolean>(true);
 
    useEffect(() => {
@@ -56,8 +58,6 @@ export const SearchArts: React.FC = () => {
    const handleDataToSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
       setDataToSearch(event.target.value);
    };
-
-   if (error) return <div>{error.message}</div>;
 
    return (
       <CenteredFlex>

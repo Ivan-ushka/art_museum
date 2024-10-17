@@ -19,14 +19,13 @@ export const ArtInfoContainer = styled.div`
 
 export const ArtInfoImageWrap = styled.div`
    flex: 1;
-   width: 100%;
-   height: 100%;
+   position: relative;
 `;
 
 export const ArtInfoImage = styled.img`
    height: 100%;
+   max-height: 600px;
    width: 100%;
-   object-fit: cover;
    border-radius: 2px;
 `;
 
@@ -110,4 +109,11 @@ export const ArtInfoOverviewTitle = styled.div`
       text-align: center;
       font-size: 28px;
    }
+`;
+
+export const ZContainer = styled.div`
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   z-index: 100;
 `;

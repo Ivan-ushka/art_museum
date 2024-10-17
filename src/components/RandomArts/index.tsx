@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Art } from '../../http/interfaces';
 import { GridContainer } from './styled';
 import { SmallArtCard } from '../Cards/SmallArtCard';
@@ -7,9 +7,12 @@ import { CenteredFlex, Padding } from '../../pages/styled';
 import { getArtList } from '../../http/ArtActions';
 import Loader from '../Loader';
 
-export const RandomArts: React.FC = () => {
+interface RandomArtsProps {
+   setError: (error: Error | null) => void;
+}
+
+export const RandomArts: FC<RandomArtsProps> = ({ setError }) => {
    const [artList, setArtList] = useState<Art[]>([]);
-   const [error, setError] = useState<Error | null>(null);
    const [isLoading, setIsLoading] = useState<boolean>(true);
 
    useEffect(() => {
@@ -25,8 +28,6 @@ export const RandomArts: React.FC = () => {
          }
       })();
    }, []);
-
-   if (error) return <div>{error.message}</div>;
 
    return (
       <CenteredFlex>

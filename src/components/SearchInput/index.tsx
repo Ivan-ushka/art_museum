@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Input, InputWrapper, SearchTitle, SearchWrapper } from './styled';
-import { Icon, YellowText } from '../../pages/styled';
+import { Input, InputWrapper, SearchWrapper } from './styled';
+import { HugeTitle, Icon, YellowText } from '../../pages/styled';
 import loop from '../../assets/loop.svg';
 
 interface SearchInputProps {
@@ -14,9 +14,9 @@ export const SearchInput: FC<SearchInputProps> = ({
 }) => {
    return (
       <SearchWrapper>
-         <SearchTitle>
+         <HugeTitle>
             Let&apos;s Find Some <YellowText>Art</YellowText> Here!
-         </SearchTitle>
+         </HugeTitle>
          <InputWrapper>
             <Input
                placeholder='Search art, artist, work...'

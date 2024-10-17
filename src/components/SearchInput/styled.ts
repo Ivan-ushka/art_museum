@@ -15,17 +15,6 @@ export const SearchWrapper = styled.div`
    }
 `;
 
-export const SearchTitle = styled.div`
-   font-family: 'Lexend Deca', sans-serif;
-   font-size: 64px;
-   max-width: 684px;
-   font-weight: bold;
-
-   @media (max-width: 1024px) {
-      font-size: 32px;
-   }
-`;
-
 export const InputWrapper = styled.div`
    display: flex;
    margin-top: 72px;
