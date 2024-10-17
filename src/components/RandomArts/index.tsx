@@ -27,7 +27,7 @@ export const RandomArts: FC<RandomArtsProps> = ({ setError }) => {
             setIsLoading(false);
          }
       })();
-   }, []);
+   }, [setError]);
 
    return (
       <CenteredFlex>

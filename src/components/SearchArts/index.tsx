@@ -21,6 +21,7 @@ export const SearchArts: FC<SearchArtsProps> = ({ setError }) => {
    const [currentPage, setCurrentPage] = useState<number>(1);
 
    const debouncedSearchTerm = useDebounce(dataToSearch, 200);
+   const [searchValidationMessage, setSearhValidationMessage] = useState<string>('');
    const [isLoading, setIsLoading] = useState<boolean>(true);
 
    useEffect(() => {
@@ -34,10 +35,17 @@ export const SearchArts: FC<SearchArtsProps> = ({ setError }) => {
          }
          setIsLoading(false);
       })();
-   }, [currentPage]);
+   }, [currentPage, dataToSearch, setError]);
 
    useEffect(() => {
-      if (debouncedSearchTerm) {
+      if (debouncedSearchTerm.length === 0) {
+         setSearhValidationMessage('');
+      } else if (debouncedSearchTerm.length <= 2) {
+         setSearhValidationMessage('Message length should be at least 3 letters');
+      } else if (debouncedSearchTerm.length > 40) {
+         setSearhValidationMessage('Message length should be at less 40 letters');
+      } else if (debouncedSearchTerm) {
+         setSearhValidationMessage('');
          (async () => {
             setIsLoading(true);
             try {
@@ -49,7 +57,7 @@ export const SearchArts: FC<SearchArtsProps> = ({ setError }) => {
             setIsLoading(false);
          })();
       }
-   }, [debouncedSearchTerm]);
+   }, [debouncedSearchTerm, setError]);
 
    function handleChangePage(page: number) {
       setCurrentPage(page);
@@ -64,6 +72,7 @@ export const SearchArts: FC<SearchArtsProps> = ({ setError }) => {
          <SearchInput
             dataToSearch={dataToSearch}
             handleDataToSearch={handleDataToSearch}
+            searchValidationMessage={searchValidationMessage}
          />
          <Title preTitle={'Topics for you'} title={'Our special gallery'} />
          {isLoading ? (

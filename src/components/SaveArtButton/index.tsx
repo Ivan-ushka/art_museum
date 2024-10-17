@@ -4,11 +4,11 @@ import bookmark from '../../assets/bookmark.svg';
 import { FavoritesImageWrap } from '../Cards/CardDescription/styled';
 import { Art } from '../../http/interfaces';
 
-interface SaveArtButton {
+interface SaveArtButtonProp {
    art: Art;
 }
 
-const SaveArtButton: FC<SaveArtButton> = ({ art }) => {
+export const SaveArtButton: FC<SaveArtButtonProp> = ({ art }) => {
    const [isInStorage, setIsInStorage] = useState<boolean>(false);
 
    useEffect(() => {
@@ -17,7 +17,7 @@ const SaveArtButton: FC<SaveArtButton> = ({ art }) => {
       );
 
       setIsInStorage(savedPaintings.some(p => p.id === art.id));
-   }, []);
+   }, [art.id]);
 
    const saveFavorites = () => {
       let newDataStorage: Art[] = JSON.parse(sessionStorage.getItem('paintings') || '[]');

@@ -37,3 +37,8 @@ export const Input = styled.input`
    text-align: start;
    width: 100%;
 `;
+
+export const ErrorDiv = styled.div`
+   color: ${colors.yellow};
+   margin-top: 10px;
+`;
