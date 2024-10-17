@@ -11,3 +11,7 @@ export const GridContainer = styled.div`
       justify-content: center;
    }
 `;
+
+export const PositionRelative = styled.div`
+   position: relative;
+`;

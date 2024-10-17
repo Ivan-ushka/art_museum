@@ -11,7 +11,7 @@ export const SearchWrapper = styled.div`
 
    @media (max-width: 760px) {
       padding: 10px;
-      margin: 30px 0;
+      margin: 50px 0;
    }
 `;
 
