@@ -34,7 +34,11 @@ export const SaveArtButton: FC<SaveArtButtonProp> = ({ art }) => {
    };
 
    return (
-      <FavoritesImageWrap $isInStorage={isInStorage} onClick={saveFavorites}>
+      <FavoritesImageWrap
+         $isInStorage={isInStorage}
+         onClick={saveFavorites}
+         data-testid={art.id}
+      >
          <Icon src={bookmark} alt='bookmark' />
       </FavoritesImageWrap>
    );

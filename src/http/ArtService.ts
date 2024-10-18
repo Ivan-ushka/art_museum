@@ -16,7 +16,7 @@ export default class ArtService {
          params: {
             id,
             fields:
-               'dimensions,place_of_origin,copyright_notice,artist_title,title,image_id,date_start,date_end,credit_line',
+               'id,dimensions,place_of_origin,copyright_notice,artist_title,title,image_id,date_start,date_end,credit_line',
          },
       });
    }
