@@ -1,8 +1,5 @@
 import { images } from '@assets/images';
-import { HugeTitle, Icon, YellowText } from '@pages/styled';
 import { ChangeEvent, FC } from 'react';
-
-import { ErrorDiv, Input, InputWrapper, SearchWrapper } from './styled';
 
 interface SearchInputProps {
    dataToSearch: string;
@@ -16,12 +13,13 @@ export const SearchInput: FC<SearchInputProps> = ({
    searchValidationMessage,
 }) => {
    return (
-      <SearchWrapper>
-         <HugeTitle>
-            Let&apos;s Find Some <YellowText>Art</YellowText> Here!
-         </HugeTitle>
-         <InputWrapper>
-            <Input
+      <div className='search-wrapper'>
+         <div className='huge-title'>
+            Let&apos;s Find Some <span className='yellow-text'>Art</span> Here!
+         </div>
+         <div className='input-wrapper'>
+            <input
+               className='search-input'
                required
                maxLength={50}
                minLength={2}
@@ -29,9 +27,9 @@ export const SearchInput: FC<SearchInputProps> = ({
                onChange={e => handleDataToSearch(e)}
                value={dataToSearch}
             />
-            <Icon src={images.loop} alt='loop' />
-         </InputWrapper>
-         <ErrorDiv>{searchValidationMessage}</ErrorDiv>
-      </SearchWrapper>
+            <img className='icon' src={images.loop} alt='loop' />
+         </div>
+         <div className='search-error'>{searchValidationMessage}</div>
+      </div>
    );
 };

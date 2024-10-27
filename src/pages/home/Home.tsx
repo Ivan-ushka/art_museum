@@ -3,10 +3,7 @@ import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 import { RandomArts } from '@components/RandomArts';
 import { SearchArts } from '@components/SearchArts';
-import { colors } from '@constants/colors';
 import { useState } from 'react';
-
-import { MainContainer } from '../styled';
 
 export const Home = () => {
    const [error, setError] = useState<Error | null>(null);
@@ -16,10 +13,10 @@ export const Home = () => {
    return (
       <>
          <Header />
-         <MainContainer $backgroundColor={colors.background}>
+         <main className='main-container'>
             <SearchArts setError={setError} />
             <RandomArts setError={setError} />
-         </MainContainer>
+         </main>
          <Footer />
       </>
    );

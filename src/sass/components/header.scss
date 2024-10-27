@@ -1,0 +1,93 @@
+@import '../abstracts/colors';
+
+.menu-mobile-img {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  height: 35px;
+  width: 35px;
+  border: 1px solid $grey;
+  border-radius: 3px;
+  transition: box-shadow 0.3s ease;
+
+  @media (max-width: 760px) {
+    display: block;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  }
+
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 65px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  z-index: 1000;
+
+  &.hidden {
+    display: none;
+
+    @media (min-width: 760px) {
+      display: none;
+    }
+  }
+
+  &.open{
+    display: block;
+
+    @media (min-width: 760px) {
+      display: none;
+    }
+  }
+}
+
+.dropdown-menu-item {
+  padding: 10px 15px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.menu-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 760px) {
+    display: none;
+  }
+}
+
+.menu-desktop-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+}
+
+.menu-desktop-image {
+  height: 24px;
+  width: 24px;
+}
+
+.menu-desktop-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+  padding: 0 4px;
+
+  @media (max-width: 760px) {
+    font-size: 12px;
+  }
+}

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Art } from '@/interfaces/interfaces';
 
 import { SaveArtButton } from '../../SaveArtButton';
-import { ArtTitle, Author, CardDetails, CardFavorites, Public } from './styled';
 
 interface CardDescriptionProps {
    art: Art;
@@ -17,15 +16,15 @@ export const CardDescription: FC<CardDescriptionProps> = ({
    return (
       <>
          <Link to={`/art-info/${id}`}>
-            <CardDetails>
-               <ArtTitle>{title || 'Unknown title'}</ArtTitle>
-               <Author>{artist_title || 'Unknown artist'}</Author>
-               <Public>Public</Public>
-            </CardDetails>
+            <div className='card-details'>
+               <div className='title'>{title || 'Unknown title'}</div>
+               <div className='author'>{artist_title || 'Unknown artist'}</div>
+               <div className='public'>Public</div>
+            </div>
          </Link>
-         <CardFavorites>
+         <div className='end-flex'>
             <SaveArtButton art={art} />
-         </CardFavorites>
+         </div>
       </>
    );
 };

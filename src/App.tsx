@@ -1,4 +1,4 @@
-import './App.css';
+import './sass/app.css';
 
 import { ErrorBoundary } from '@components/ErrorBoundary';
 import { ErrorMessage } from '@components/ErrorMessage';

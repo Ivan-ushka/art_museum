@@ -1,0 +1,26 @@
+@import '../abstracts/colors';
+
+.favorites-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: $background;
+
+  &.in-storage {
+    background-color: $background-yellow;
+  }
+
+  @media (max-width: 1024px) {
+    height: 45px;
+    width: 45px;
+  }
+
+  @media (max-width: 600px) {
+    height: 35px;
+    width: 35px;
+  }
+}

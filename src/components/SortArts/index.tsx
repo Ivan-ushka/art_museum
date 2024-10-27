@@ -3,8 +3,6 @@ import { ChangeEvent, FC, useEffect, useState } from 'react';
 
 import { Art } from '@/interfaces/interfaces';
 
-import { SelectContainer, SelectWrapper, StyledSelect } from './styled';
-
 interface SortArtsProps {
    artList: Art[];
    setArtList: (artList: Art[]) => void;
@@ -22,14 +20,18 @@ export const SortArts: FC<SortArtsProps> = ({ artList, setArtList }) => {
    };
 
    return (
-      <SelectContainer>
-         <SelectWrapper>
-            <StyledSelect value={howToSort} onChange={handleSelectChange}>
+      <div className='select-container'>
+         <div className='select-wrapper'>
+            <select
+               className='styled-select'
+               value={howToSort}
+               onChange={handleSelectChange}
+            >
                <option value=''>Sorting by</option>
                <option value='A-Z'>Title by A-Z</option>
                <option value='Z-A'>Title by Z-A</option>
-            </StyledSelect>
-         </SelectWrapper>
-      </SelectContainer>
+            </select>
+         </div>
+      </div>
    );
 };

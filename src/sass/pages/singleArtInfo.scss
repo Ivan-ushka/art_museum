@@ -1,0 +1,118 @@
+@import '../abstracts/colors';
+
+.art-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 120px 0;
+  gap: 80px;
+
+  @media (max-width: 1920px) {
+    padding: 80px 0;
+    gap: 60px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.art-info-image-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.art-info-image {
+  height: 100%;
+  max-height: 600px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.art-info-details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.art-info-title-container {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 32px;
+
+    @media (max-width: 1200px) {
+      font-size: 26px;
+      margin-bottom: 26px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .artist {
+    font-size: 24px;
+    margin-bottom: 16px;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  .year {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 172px;
+
+    @media (max-width: 1920px) {
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 1600px) {
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+
+.art-info-overview {
+  @media (max-width: 1600px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    flex: 1;
+  }
+}
+
+.art-info-overview-title {
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 32px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 28px;
+  }
+}
+
+.z-container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 100;
+}

@@ -1,5 +1,4 @@
 import { getSearchArtList } from '@api/ArtActions';
-import { CenteredFlex, NoResultFound, Padding } from '@pages/styled';
 import { validateSearchTerm } from '@utils/validationUtils';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 
@@ -12,7 +11,6 @@ import { Pagination } from '../Pagination';
 import { SearchInput } from '../SearchInput';
 import { SortArts } from '../SortArts';
 import { Title } from '../Title';
-import { GridContainer, PositionRelative } from './styled';
 
 interface SearchArtsProps {
    setError: (error: Error | null) => void;
@@ -57,36 +55,36 @@ export const SearchArts: FC<SearchArtsProps> = ({ setError }) => {
    };
 
    return (
-      <CenteredFlex>
-         <PositionRelative>
+      <div className='centered-flex'>
+         <div className='position-relative'>
             <SortArts artList={searchArtList} setArtList={setSearchArtList} />
             <SearchInput
                dataToSearch={dataToSearch}
                handleDataToSearch={handleDataToSearch}
                searchValidationMessage={searchValidationMessage}
             />
-         </PositionRelative>
+         </div>
          <Title preTitle={'Topics for you'} title={'Our special gallery'} />
          {isLoading ? (
-            <CenteredFlex>
-               <Padding $padding={'190px'}>
+            <div className='centered-flex'>
+               <div className='padding-190'>
                   <Loader size={100} />
-               </Padding>
-            </CenteredFlex>
+               </div>
+            </div>
          ) : searchArtList && searchArtList.length > 0 ? (
-            <GridContainer>
+            <div className='search-art-grid-container'>
                {searchArtList.map(art => (
                   <LargeArtCard art={art} key={art.id} />
                ))}
-            </GridContainer>
+            </div>
          ) : (
-            <NoResultFound>No results found</NoResultFound>
+            <div className='no-result-found'>No results found</div>
          )}
          <Pagination
             currentPage={currentPage}
             totalPages={100}
             handleChangePage={handleChangePage}
          />
-      </CenteredFlex>
+      </div>
    );
 };

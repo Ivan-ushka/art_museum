@@ -1,11 +1,8 @@
 import { images } from '@assets/images';
-import { Icon } from '@pages/styled';
 import { SessionStorageManager } from '@utils/sessionStorageManager';
 import { FC, useEffect, useState } from 'react';
 
 import { Art } from '@/interfaces/interfaces';
-
-import { FavoritesImageWrap } from '../Cards/CardDescription/styled';
 
 interface SaveArtButtonProp {
    art: Art;
@@ -24,12 +21,12 @@ export const SaveArtButton: FC<SaveArtButtonProp> = ({ art }) => {
    };
 
    return (
-      <FavoritesImageWrap
-         $isInStorage={isInStorage}
+      <div
+         className={`favorites-image-wrap ${isInStorage ? 'in-storage' : ''}`}
          onClick={saveFavorites}
          data-testid={art.id}
       >
-         <Icon src={images.bookmark} alt='bookmark' />
-      </FavoritesImageWrap>
+         <img className='icon' src={images.bookmark} alt='bookmark' />
+      </div>
    );
 };

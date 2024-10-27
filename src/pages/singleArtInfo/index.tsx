@@ -4,30 +4,13 @@ import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 import { Loader } from '@components/Loader';
 import { SaveArtButton } from '@components/SaveArtButton';
-import { colors } from '@constants/colors';
 import { Art, ArtById } from '@interfaces/interfaces';
+import { getArtDetails } from '@utils/artDetailsUtils';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { CenteredFlex, MainContainer, Padding, YellowText } from '../styled';
-import {
-   ArtInfoArtist,
-   ArtInfoContainer,
-   ArtInfoDetails,
-   ArtInfoImage,
-   ArtInfoImageWrap,
-   ArtInfoOverview,
-   ArtInfoOverviewItem,
-   ArtInfoOverviewTitle,
-   ArtInfoTitle,
-   ArtInfoTitleContainer,
-   ArtInfoYear,
-   ZContainer,
-} from './styled';
-
 interface SingleArtInfoParams {
    artId: string | undefined;
-
    [key: string]: string | undefined;
 }
 
@@ -56,59 +39,54 @@ export const SingleArtInfo = () => {
 
    if (error) return <ErrorMessage error={error.message} />;
 
+   const artDetails = getArtDetails(art);
+
    return (
       <>
          <Header />
-         <MainContainer $backgroundColor={colors.background}>
+         <main className='main-container'>
             {!art || isLoading ? (
-               <CenteredFlex>
-                  <Padding $padding={'150px'}>
+               <div className='centered-flex'>
+                  <div className='padding-150'>
                      <Loader size={100} />
-                  </Padding>
-               </CenteredFlex>
+                  </div>
+               </div>
             ) : (
-               <ArtInfoContainer>
-                  <ArtInfoImageWrap>
-                     <ArtInfoImage src={art.imageUrl} alt='art title' />
-                     <ZContainer>
+               <div className='art-info-container'>
+                  <div className='art-info-image-wrap'>
+                     <img className='art-info-image' src={art.imageUrl} alt='art title' />
+                     <div className='z-container'>
                         <SaveArtButton art={art as Art} />
-                     </ZContainer>
-                  </ArtInfoImageWrap>
-                  <ArtInfoDetails>
-                     <ArtInfoTitleContainer>
-                        <ArtInfoTitle>{art.title}</ArtInfoTitle>
-                        <ArtInfoArtist>
-                           <YellowText>{art.artist_title}</YellowText>
-                        </ArtInfoArtist>
-                        <ArtInfoYear>
-                           {art.date_start}-{art.date_end}
-                        </ArtInfoYear>
-                     </ArtInfoTitleContainer>
-                     <div>
-                        <ArtInfoOverviewTitle>Overview</ArtInfoOverviewTitle>
-                        <ArtInfoOverview>
-                           <ArtInfoOverviewItem>
-                              <YellowText>Artist nacionality:{'\u00A0'} </YellowText>
-                              <p>{art.place_of_origin}</p>
-                           </ArtInfoOverviewItem>
-                           <ArtInfoOverviewItem>
-                              <YellowText>Dimensions: Sheet:{'\u00A0'}</YellowText>
-                              <p>{art.dimensions}</p>
-                           </ArtInfoOverviewItem>
-                           <ArtInfoOverviewItem>
-                              <YellowText>Credit Line:{'\u00A0'}</YellowText>
-                              <p>{art.credit_line}</p>
-                           </ArtInfoOverviewItem>
-                           <ArtInfoOverviewItem>
-                              <YellowText>Repository:{'\u00A0'}</YellowText>
-                              <p>{art.place_of_origin}</p>
-                           </ArtInfoOverviewItem>
-                        </ArtInfoOverview>
                      </div>
-                  </ArtInfoDetails>
-               </ArtInfoContainer>
+                  </div>
+                  <div className='art-info-details'>
+                     <div className='art-info-title-container'>
+                        <div className='title'>{art.title}</div>
+                        <div className='artist'>
+                           <span className='yellow-text'>{art.artist_title}</span>
+                        </div>
+                        <div className='year'>
+                           {art.date_start}-{art.date_end}
+                        </div>
+                     </div>
+                     <div>
+                        <div className='art-info-overview-title'>Overview</div>
+                        <div className='art-info-overview'>
+                           {artDetails.map(({ label, value }) => (
+                              <div key={value}>
+                                 <span className='yellow-text'>
+                                    {label}
+                                    {'\u00A0'}
+                                 </span>
+                                 <p>{value || 'N/A'}</p>
+                              </div>
+                           ))}
+                        </div>
+                     </div>
+                  </div>
+               </div>
             )}
-         </MainContainer>
+         </main>
          <Footer />
       </>
    );

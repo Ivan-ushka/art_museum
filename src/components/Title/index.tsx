@@ -1,7 +1,5 @@
 import { FC } from 'react';
 
-import { MainTitle, PreTitle } from './styled';
-
 interface PropsTitle {
    preTitle: string;
    title: string;
@@ -10,8 +8,8 @@ interface PropsTitle {
 export const Title: FC<PropsTitle> = ({ preTitle, title }) => {
    return (
       <>
-         <PreTitle>{preTitle}</PreTitle>
-         <MainTitle>{title}</MainTitle>
+         <div className='pre-title'>{preTitle}</div>
+         <div className='main-title'>{title}</div>
       </>
    );
 };

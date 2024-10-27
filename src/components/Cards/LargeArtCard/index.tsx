@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Art } from '@/interfaces/interfaces';
 
 import { CardDescription } from '../CardDescription';
-import { LargeCard, LargeCardImage, TopContainer } from './styled';
 
 interface CardProps {
    art: Art;
@@ -13,17 +12,17 @@ interface CardProps {
 
 export const LargeArtCard: FC<CardProps> = ({ art, art: { id, imageUrl } }) => {
    return (
-      <LargeCard>
+      <div className='large-card'>
          <Link to={`/art-info/${id}`}>
             {imageUrl ? (
-               <LargeCardImage src={imageUrl} alt='Don`t found image' />
+               <img className='large-card-image' src={imageUrl} alt='Don`t found image' />
             ) : (
-               <LargeCardImage src={images.museum} alt='museum' />
+               <img className='large-card-image' src={images.museum} alt='museum' />
             )}
          </Link>
-         <TopContainer>
+         <div className='top-container'>
             <CardDescription art={art} />
-         </TopContainer>
-      </LargeCard>
+         </div>
+      </div>
    );
 };

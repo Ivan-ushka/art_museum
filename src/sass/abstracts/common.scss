@@ -1,0 +1,124 @@
+@import 'colors';
+
+.icon {
+  height: 24px;
+  width: 24px;
+
+  @media (max-width: 1024px) {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.logo {
+  height: 63px;
+  width: 206px;
+
+  @media (max-width: 760px) {
+    height: 45px;
+    width: 150px;
+  }
+}
+
+.main-container {
+  margin: 0 auto;
+  padding: 16px 15vw;
+  background: $background;
+
+  &.white{
+    background: $white;
+  }
+
+  &.gradient{
+    background: $gradient;
+  }
+}
+
+.centered-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.end-flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.between-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.yellow-text {
+  color: $yellow;
+}
+
+.small-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 120px;
+
+  @media (min-width: 1250px) and (max-width: 1920px) {
+    gap: 20px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1250px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 100px;
+  }
+
+  @media (max-width: 769px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 80px;
+  }
+}
+
+.no-result-found {
+  padding: 150px;
+  text-align: center;
+  font-size: 32px;
+
+  @media (max-width: 760px) {
+    padding: 50px;
+    font-size: 16px;
+  }
+}
+
+.huge-title {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 64px;
+  max-width: 684px;
+  font-weight: bold;
+
+  @media (max-width: 1024px) {
+    font-size: 32px;
+  }
+}
+
+.full-height {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 70vh;
+  background: $background;
+}
+
+.padding-150{
+  padding: 150px;
+}
+
+.padding-175{
+  padding: 175px;
+}
+
+.padding-200{
+  padding: 200px;
+}

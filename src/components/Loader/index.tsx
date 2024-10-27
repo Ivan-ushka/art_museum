@@ -1,15 +1,16 @@
 import { FC } from 'react';
 
-import { LoaderContainer, Spinner } from './styled';
-
 interface LoaderProps {
    size?: number;
 }
 
 export const Loader: FC<LoaderProps> = ({ size = 50 }) => {
    return (
-      <LoaderContainer size={size}>
-         <Spinner />
-      </LoaderContainer>
+      <div
+         className='loader-container'
+         style={{ width: `${size}px`, height: `${size}px` }}
+      >
+         <div className='spinner' />
+      </div>
    );
 };

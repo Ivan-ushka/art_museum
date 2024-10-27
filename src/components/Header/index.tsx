@@ -1,18 +1,6 @@
 import { images } from '@assets/images';
-import { colors } from '@constants/colors';
-import { BetweenFlex, Logo, MainContainer } from '@pages/styled';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
-import {
-   DropdownMenu,
-   DropdownMenuItem,
-   MenuDesktop,
-   MenuDesktopImage,
-   MenuDesktopItem,
-   MenuDesktopText,
-   MenuMobile,
-} from './styled';
 
 export const Header = () => {
    const location = useLocation();
@@ -25,43 +13,52 @@ export const Header = () => {
    };
 
    return (
-      <MainContainer $backgroundColor={colors.gradient}>
-         <BetweenFlex>
+      <header className='main-container gradient'>
+         <div className='between-flex'>
             <Link to='/'>
-               <Logo src={images.museumLogo} alt='museumLogo' />
+               <img className='logo' src={images.museumLogo} alt='museumLogo' />
             </Link>
-            <MenuDesktop>
+            <div className='menu-desktop'>
                {!isHome && (
                   <Link to='/'>
-                     <MenuDesktopItem>
-                        <MenuDesktopImage src={images.home} alt='home' />
-                        <MenuDesktopText>Home</MenuDesktopText>
-                     </MenuDesktopItem>
+                     <div className='menu-desktop-item'>
+                        <img
+                           className='menu-desktop-image'
+                           src={images.home}
+                           alt='home'
+                        />
+                        <div className='menu-desktop-text'>Home</div>
+                     </div>
                   </Link>
                )}
 
                <Link to='/favorites'>
-                  <MenuDesktopItem>
-                     <MenuDesktopImage src={images.bookmark} alt='bookmark' />
-                     <MenuDesktopText>Your favorites</MenuDesktopText>
-                  </MenuDesktopItem>
+                  <div className='menu-desktop-item'>
+                     <img
+                        className='menu-desktop-image'
+                        src={images.bookmark}
+                        alt='bookmark'
+                     />
+                     <div className='menu-desktop-text'>Your favorites</div>
+                  </div>
                </Link>
-            </MenuDesktop>
+            </div>
 
-            <MenuMobile
+            <img
+               className='menu-mobile-img'
                src={images.burgerMenu}
                alt='burgerMenu'
                onClick={toggleDropdown}
             />
-            <DropdownMenu $isOpen={isOpen}>
+            <div className={`dropdown-menu ${isOpen ? 'hidden' : 'open'}`}>
                <Link to='/'>
-                  <DropdownMenuItem>Home</DropdownMenuItem>
+                  <div className='dropdown-menu-item'>Home</div>
                </Link>
                <Link to='/favorites'>
-                  <DropdownMenuItem>Your favorites</DropdownMenuItem>
+                  <div className='dropdown-menu-item'>Your favorites</div>
                </Link>
-            </DropdownMenu>
-         </BetweenFlex>
-      </MainContainer>
+            </div>
+         </div>
+      </header>
    );
 };

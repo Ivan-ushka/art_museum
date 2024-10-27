@@ -2,15 +2,10 @@ import { images } from '@assets/images';
 import { SmallArtCard } from '@components/Cards/SmallArtCard';
 import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
-import { GridContainer } from '@components/RandomArts/styled';
 import { Title } from '@components/Title';
-import { colors } from '@constants/colors';
 import { Art } from '@interfaces/interfaces';
 import { SessionStorageManager } from '@utils/sessionStorageManager';
 import { useEffect, useState } from 'react';
-
-import { CenteredFlex, MainContainer, NoResultFound } from '../styled';
-import { FavoritesTitle, HugeIcon, WarningText } from './styled';
 
 export const Favorites = () => {
    const [artListStorage, setArtListStorage] = useState<Art[]>([]);
@@ -26,27 +21,31 @@ export const Favorites = () => {
    return (
       <>
          <Header />
-         <MainContainer $backgroundColor={colors.background}>
-            <CenteredFlex>
-               <FavoritesTitle>
+         <main className='main-container'>
+            <div className='centered-flex'>
+               <div className='favorites-title'>
                   Here Are You
-                  <WarningText>
-                     <HugeIcon src={images.bookmark} alt='bookmark'></HugeIcon>
+                  <div className='warning-text'>
+                     <img
+                        className='huge-icon'
+                        src={images.bookmark}
+                        alt='bookmark'
+                     ></img>
                      Favorites
-                  </WarningText>
-               </FavoritesTitle>
+                  </div>
+               </div>
                <Title preTitle={'Saved by you'} title={'Your favorites list'} />
                {artListStorage && artListStorage.length > 0 ? (
-                  <GridContainer onClick={loadPaintings}>
+                  <div className='small-grid-container' onClick={loadPaintings}>
                      {artListStorage.map(art => (
                         <SmallArtCard art={art} key={art.id} />
                      ))}
-                  </GridContainer>
+                  </div>
                ) : (
-                  <NoResultFound>No favorites...</NoResultFound>
+                  <div className='no-result-found'>No favorites...</div>
                )}
-            </CenteredFlex>
-         </MainContainer>
+            </div>
+         </main>
          <Footer />
       </>
    );

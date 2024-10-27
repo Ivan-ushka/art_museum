@@ -1,0 +1,25 @@
+@import '../abstracts/colors';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 8px solid transparent;
+  border-top-color: $yellow;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  width: 100%;
+  height: 100%;
+}

@@ -1,7 +1,5 @@
 import { getVisiblePages } from '@utils/paginationUtils';
 
-import { ArrowButton, PageButton, PaginationWrapper } from './styled';
-
 interface PaginationProps {
    currentPage: number;
    totalPages: number;
@@ -16,28 +14,34 @@ export const Pagination = ({
    const visiblePages = getVisiblePages(currentPage, totalPages);
 
    return (
-      <PaginationWrapper>
+      <div className='pagination-wrapper'>
          {currentPage > 1 && (
-            <ArrowButton onClick={() => handleChangePage(currentPage - 1)}>
+            <div
+               className='arrow-button'
+               onClick={() => handleChangePage(currentPage - 1)}
+            >
                &lt;
-            </ArrowButton>
+            </div>
          )}
 
          {visiblePages.map((pageNumber: number) => (
-            <PageButton
+            <button
+               className={`page-button ${pageNumber === currentPage ? 'active' : ''}`}
                key={pageNumber}
                onClick={() => handleChangePage(pageNumber)}
-               $active={pageNumber === currentPage}
             >
                {pageNumber === -1 ? '...' : pageNumber}
-            </PageButton>
+            </button>
          ))}
 
          {currentPage < totalPages && (
-            <ArrowButton onClick={() => handleChangePage(currentPage + 1)}>
+            <div
+               className='arrow-button'
+               onClick={() => handleChangePage(currentPage + 1)}
+            >
                &gt;
-            </ArrowButton>
+            </div>
          )}
-      </PaginationWrapper>
+      </div>
    );
 };

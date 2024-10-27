@@ -1,0 +1,19 @@
+.search-art-grid-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.position-relative {
+  position: relative;
+}
+
+.padding-190 {
+  padding: 190px;
+}
