@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import { images } from '@assets/images';
+import { colors } from '@constants/colors';
+import { BetweenFlex, Logo, MainContainer } from '@pages/styled';
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
 import {
-   MenuDesktop,
-   MenuMobile,
    DropdownMenu,
    DropdownMenuItem,
+   MenuDesktop,
+   MenuDesktopImage,
    MenuDesktopItem,
    MenuDesktopText,
-   MenuDesktopImage,
+   MenuMobile,
 } from './styled';
-import museumLogo from '../../assets/museumLogo.svg';
-import burgerMenu from '../../assets/burgerMenu.png';
-import home from '../../assets/home.svg';
-import bookmark from '../../assets/bookmark.svg';
-import { Link, useLocation } from 'react-router-dom';
-import { BetweenFlex, Logo, MainContainer } from '../../pages/styled';
-import { colors } from '../../constants/colors';
 
 export const Header = () => {
    const location = useLocation();
@@ -30,13 +28,13 @@ export const Header = () => {
       <MainContainer $backgroundColor={colors.gradient}>
          <BetweenFlex>
             <Link to='/'>
-               <Logo src={museumLogo} alt='museumLogo' />
+               <Logo src={images.museumLogo} alt='museumLogo' />
             </Link>
             <MenuDesktop>
                {!isHome && (
                   <Link to='/'>
                      <MenuDesktopItem>
-                        <MenuDesktopImage src={home} alt='home' />
+                        <MenuDesktopImage src={images.home} alt='home' />
                         <MenuDesktopText>Home</MenuDesktopText>
                      </MenuDesktopItem>
                   </Link>
@@ -44,13 +42,17 @@ export const Header = () => {
 
                <Link to='/favorites'>
                   <MenuDesktopItem>
-                     <MenuDesktopImage src={bookmark} alt='bookmark' />
+                     <MenuDesktopImage src={images.bookmark} alt='bookmark' />
                      <MenuDesktopText>Your favorites</MenuDesktopText>
                   </MenuDesktopItem>
                </Link>
             </MenuDesktop>
 
-            <MenuMobile src={burgerMenu} alt='burgerMenu' onClick={toggleDropdown} />
+            <MenuMobile
+               src={images.burgerMenu}
+               alt='burgerMenu'
+               onClick={toggleDropdown}
+            />
             <DropdownMenu $isOpen={isOpen}>
                <Link to='/'>
                   <DropdownMenuItem>Home</DropdownMenuItem>

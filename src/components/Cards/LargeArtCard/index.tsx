@@ -1,22 +1,24 @@
-import React, { FC } from 'react';
-import { Art } from '../../../http/interfaces';
-import museum from '../../../assets/museum.svg';
+import { images } from '@assets/images';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Art } from '@/interfaces/interfaces';
+
 import { CardDescription } from '../CardDescription';
 import { LargeCard, LargeCardImage, TopContainer } from './styled';
-import { Link } from 'react-router-dom';
 
 interface CardProps {
    art: Art;
 }
 
-export const LargeArtCard: FC<CardProps> = ({ art }) => {
+export const LargeArtCard: FC<CardProps> = ({ art, art: { id, imageUrl } }) => {
    return (
       <LargeCard>
-         <Link to={`/art-info/${art.id}`}>
-            {art.imageUrl ? (
-               <LargeCardImage src={art.imageUrl} alt={art.imageUrl} />
+         <Link to={`/art-info/${id}`}>
+            {imageUrl ? (
+               <LargeCardImage src={imageUrl} alt='Don`t found image' />
             ) : (
-               <LargeCardImage src={museum} alt='museum' />
+               <LargeCardImage src={images.museum} alt='museum' />
             )}
          </Link>
          <TopContainer>

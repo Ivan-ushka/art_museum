@@ -1,20 +1,20 @@
-import React, { FC } from 'react';
-import { Header } from '../Header';
+import { colors } from '@constants/colors';
+import { CenteredFlex, FullHeight, MainContainer } from '@pages/styled';
+import { FC } from 'react';
+
 import { Footer } from '../Footer';
-import { CenteredFlex, FullHeight, MainContainer } from '../../pages/styled';
-import { colors } from '../../constants/colors';
-import { MainTitle } from '../Title/styled';
+import { Header } from '../Header';
 import { Title } from '../Title';
+import { MainTitle } from '../Title/styled';
 
 interface ErrorMessageProps {
    error: string;
 }
 
-const ErrorMessage: FC<ErrorMessageProps> = ({ error }) => {
+export const ErrorMessage: FC<ErrorMessageProps> = ({ error }) => {
    return (
       <>
          <Header />
-
          <MainContainer $backgroundColor={colors.background}>
             <CenteredFlex>
                <FullHeight>
@@ -30,5 +30,3 @@ const ErrorMessage: FC<ErrorMessageProps> = ({ error }) => {
       </>
    );
 };
-
-export default ErrorMessage;

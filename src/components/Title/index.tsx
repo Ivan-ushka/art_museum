@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+
 import { MainTitle, PreTitle } from './styled';
 
 interface PropsTitle {

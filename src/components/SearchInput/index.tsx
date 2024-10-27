@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
+import { images } from '@assets/images';
+import { HugeTitle, Icon, YellowText } from '@pages/styled';
+import { ChangeEvent, FC } from 'react';
+
 import { ErrorDiv, Input, InputWrapper, SearchWrapper } from './styled';
-import { HugeTitle, Icon, YellowText } from '../../pages/styled';
-import loop from '../../assets/loop.svg';
 
 interface SearchInputProps {
    dataToSearch: string;
-   handleDataToSearch: (search: React.ChangeEvent<HTMLInputElement>) => void;
+   handleDataToSearch: (search: ChangeEvent<HTMLInputElement>) => void;
    searchValidationMessage: string;
 }
 
@@ -28,7 +29,7 @@ export const SearchInput: FC<SearchInputProps> = ({
                onChange={e => handleDataToSearch(e)}
                value={dataToSearch}
             />
-            <Icon src={loop} alt='loop' />
+            <Icon src={images.loop} alt='loop' />
          </InputWrapper>
          <ErrorDiv>{searchValidationMessage}</ErrorDiv>
       </SearchWrapper>

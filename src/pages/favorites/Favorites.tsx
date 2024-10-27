@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import { CenteredFlex, MainContainer, NoResultFound } from '../styled';
-import { colors } from '../../constants/colors';
-import bookmark from '../../assets/bookmark.svg';
-import { Title } from '../../components/Title';
-import { FavoritesTitle, HugeIcon, WarningText } from './styled';
-import { Art } from '../../http/interfaces';
-import { SmallArtCard } from '../../components/Cards/SmallArtCard';
-import { GridContainer } from '../../components/RandomArts/styled';
+import { images } from '@assets/images';
+import { SmallArtCard } from '@components/Cards/SmallArtCard';
+import { Footer } from '@components/Footer';
+import { Header } from '@components/Header';
+import { GridContainer } from '@components/RandomArts/styled';
+import { Title } from '@components/Title';
+import { colors } from '@constants/colors';
+import { Art } from '@interfaces/interfaces';
+import { SessionStorageManager } from '@utils/sessionStorageManager';
+import { useEffect, useState } from 'react';
 
-const Favorites = () => {
+import { CenteredFlex, MainContainer, NoResultFound } from '../styled';
+import { FavoritesTitle, HugeIcon, WarningText } from './styled';
+
+export const Favorites = () => {
    const [artListStorage, setArtListStorage] = useState<Art[]>([]);
 
    useEffect(() => {
-      handlePaintings();
+      loadPaintings();
    }, []);
 
-   const handlePaintings = () => {
-      const savedPaintings: Art[] = JSON.parse(
-         sessionStorage.getItem('paintings') || '[]',
-      );
-      setArtListStorage(savedPaintings);
+   const loadPaintings = () => {
+      setArtListStorage(SessionStorageManager.getPaintings());
    };
 
    return (
@@ -32,13 +31,13 @@ const Favorites = () => {
                <FavoritesTitle>
                   Here Are You
                   <WarningText>
-                     <HugeIcon src={bookmark} alt='bookmark'></HugeIcon>
+                     <HugeIcon src={images.bookmark} alt='bookmark'></HugeIcon>
                      Favorites
                   </WarningText>
                </FavoritesTitle>
                <Title preTitle={'Saved by you'} title={'Your favorites list'} />
                {artListStorage && artListStorage.length > 0 ? (
-                  <GridContainer onClick={handlePaintings}>
+                  <GridContainer onClick={loadPaintings}>
                      {artListStorage.map(art => (
                         <SmallArtCard art={art} key={art.id} />
                      ))}
@@ -52,5 +51,3 @@ const Favorites = () => {
       </>
    );
 };
-
-export default Favorites;

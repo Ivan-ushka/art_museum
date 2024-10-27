@@ -1,4 +1,5 @@
-import React from 'react';
+import { getVisiblePages } from '@utils/paginationUtils';
+
 import { ArrowButton, PageButton, PaginationWrapper } from './styled';
 
 interface PaginationProps {
@@ -12,18 +13,6 @@ export const Pagination = ({
    totalPages,
    handleChangePage,
 }: PaginationProps) => {
-   const getVisiblePages = (currentPage: number, totalPages: number) => {
-      if (currentPage < 4) {
-         return [1, 2, 3, 4, -1, totalPages];
-      }
-
-      if (currentPage > totalPages - 3) {
-         return [1, -1, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
-      }
-
-      return [1, -1, currentPage - 1, currentPage, currentPage + 1, -1, totalPages];
-   };
-
    const visiblePages = getVisiblePages(currentPage, totalPages);
 
    return (
@@ -34,9 +23,9 @@ export const Pagination = ({
             </ArrowButton>
          )}
 
-         {visiblePages.map((pageNumber: number, index: number) => (
+         {visiblePages.map((pageNumber: number) => (
             <PageButton
-               key={index}
+               key={pageNumber}
                onClick={() => handleChangePage(pageNumber)}
                $active={pageNumber === currentPage}
             >

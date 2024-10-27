@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import { RandomArts } from '../../components/RandomArts';
-import { colors } from '../../constants/colors';
-import { MainContainer } from '../styled';
-import { SearchArts } from '../../components/SearchArts';
-import ErrorMessage from '../../components/ErrorMessage';
+import { ErrorMessage } from '@components/ErrorMessage';
+import { Footer } from '@components/Footer';
+import { Header } from '@components/Header';
+import { RandomArts } from '@components/RandomArts';
+import { SearchArts } from '@components/SearchArts';
+import { colors } from '@constants/colors';
+import { useState } from 'react';
 
-const Home = () => {
+import { MainContainer } from '../styled';
+
+export const Home = () => {
    const [error, setError] = useState<Error | null>(null);
 
    if (error) return <ErrorMessage error={error.message} />;
@@ -23,5 +24,3 @@ const Home = () => {
       </>
    );
 };
-
-export default Home;

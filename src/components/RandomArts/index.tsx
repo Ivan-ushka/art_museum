@@ -1,11 +1,13 @@
-import React, { FC, useEffect, useState } from 'react';
-import { Art } from '../../http/interfaces';
-import { GridContainer } from './styled';
+import { getArtList } from '@api/ArtActions';
+import { CenteredFlex, Padding } from '@pages/styled';
+import { FC, useEffect, useState } from 'react';
+
+import { Art } from '@/interfaces/interfaces';
+
 import { SmallArtCard } from '../Cards/SmallArtCard';
+import { Loader } from '../Loader';
 import { Title } from '../Title';
-import { CenteredFlex, Padding } from '../../pages/styled';
-import { getArtList } from '../../http/ArtActions';
-import Loader from '../Loader';
+import { GridContainer } from './styled';
 
 interface RandomArtsProps {
    setError: (error: Error | null) => void;
@@ -17,16 +19,17 @@ export const RandomArts: FC<RandomArtsProps> = ({ setError }) => {
 
    useEffect(() => {
       setIsLoading(true);
-      (async () => {
-         try {
-            const response = await getArtList();
+
+      getArtList()
+         .then(response => {
             setArtList(response);
-         } catch (e) {
+         })
+         .catch(e => {
             setError(e as Error);
-         } finally {
+         })
+         .finally(() => {
             setIsLoading(false);
-         }
-      })();
+         });
    }, [setError]);
 
    return (

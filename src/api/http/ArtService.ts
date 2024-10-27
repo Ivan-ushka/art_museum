@@ -1,9 +1,10 @@
-import $api from '../http';
-import { ART_LIST_LIMIT } from '../constants/http';
+import { API_ROUTES, ART_FOR_PAGE, ART_LIST_LIMIT } from '@constants/http';
+
+import $api from './index';
 
 export default class ArtService {
    static async getArtList() {
-      return $api.get(`/artworks`, {
+      return $api.get(API_ROUTES.ART_LIST, {
          params: {
             page: Math.floor(Math.random() * ART_LIST_LIMIT),
             fields: 'id,title,artist_title,image_id',
@@ -12,7 +13,7 @@ export default class ArtService {
    }
 
    static async getArtById(id: number) {
-      return $api.get(`/artworks/${id}`, {
+      return $api.get(API_ROUTES.ART_BY_ID(id), {
          params: {
             id,
             fields:
@@ -22,11 +23,11 @@ export default class ArtService {
    }
 
    static async getSearchArtList(dataToSearch: string, page: number) {
-      return $api.get(`/artworks/search`, {
+      return $api.get(API_ROUTES.ART_SEARCH, {
          params: {
             q: dataToSearch,
             page: page,
-            limit: 3,
+            limit: ART_FOR_PAGE,
             fields: 'id,artist_title,title,image_id',
          },
       });

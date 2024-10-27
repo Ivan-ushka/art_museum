@@ -1,17 +1,20 @@
-import React from 'react';
-import AppRouter from './AppRouter';
 import './App.css';
-import { ErrorBoundary } from './components/ErrorBoundary';
-import ErrorMessage from './components/ErrorMessage';
 
-const App = () => {
+import { ErrorBoundary } from '@components/ErrorBoundary';
+import { ErrorMessage } from '@components/ErrorMessage';
+import { routes } from '@utils/routes';
+import { Route, Routes } from 'react-router-dom';
+
+export const App = () => {
+   const routeComponents = routes.map(({ path, element }, key) => (
+      <Route path={path} Component={element} key={key} />
+   ));
+
    return (
       <ErrorBoundary fallback={<ErrorMessage error={'Error in application'} />}>
          <div className='App'>
-            <AppRouter />
+            <Routes>{routeComponents}</Routes>
          </div>
       </ErrorBoundary>
    );
 };
-
-export default App;

@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import { CenteredFlex, MainContainer, Padding, YellowText } from '../styled';
-import { colors } from '../../constants/colors';
-import { Art, ArtById } from '../../http/interfaces';
-import { getArtById } from '../../http/ArtActions';
+import { getArtById } from '@api/ArtActions';
+import { ErrorMessage } from '@components/ErrorMessage';
+import { Footer } from '@components/Footer';
+import { Header } from '@components/Header';
+import { Loader } from '@components/Loader';
+import { SaveArtButton } from '@components/SaveArtButton';
+import { colors } from '@constants/colors';
+import { Art, ArtById } from '@interfaces/interfaces';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { CenteredFlex, MainContainer, Padding, YellowText } from '../styled';
 import {
    ArtInfoArtist,
    ArtInfoContainer,
@@ -20,9 +24,6 @@ import {
    ArtInfoYear,
    ZContainer,
 } from './styled';
-import SaveArtButton from '../../components/SaveArtButton';
-import Loader from '../../components/Loader';
-import ErrorMessage from '../../components/ErrorMessage';
 
 interface SingleArtInfoParams {
    artId: string | undefined;
@@ -39,19 +40,18 @@ export const SingleArtInfo = () => {
 
    useEffect(() => {
       setIsLoading(true);
-      (async (): Promise<void> => {
-         if (artId) {
-            try {
-               const response = await getArtById(Number(artId));
+
+      if (artId) {
+         getArtById(Number(artId))
+            .then(response => {
                setArt(response);
-               setIsLoading(false);
-            } catch (e) {
+            })
+            .catch(e => {
                setError(e as Error);
-            }
-         } else {
-            setIsLoading(false);
-         }
-      })();
+            });
+      }
+
+      setIsLoading(false);
    }, [artId]);
 
    if (error) return <ErrorMessage error={error.message} />;

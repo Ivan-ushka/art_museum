@@ -1,20 +1,25 @@
-import React, { FC } from 'react';
-import { ArtTitle, Author, CardDetails, CardFavorites, Public } from './styled';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { Art } from '../../../http/interfaces';
-import SaveArtButton from '../../SaveArtButton';
+
+import { Art } from '@/interfaces/interfaces';
+
+import { SaveArtButton } from '../../SaveArtButton';
+import { ArtTitle, Author, CardDetails, CardFavorites, Public } from './styled';
 
 interface CardDescriptionProps {
    art: Art;
 }
 
-export const CardDescription: FC<CardDescriptionProps> = ({ art }) => {
+export const CardDescription: FC<CardDescriptionProps> = ({
+   art,
+   art: { id, title, artist_title },
+}) => {
    return (
       <>
-         <Link to={`/art-info/${art.id}`}>
+         <Link to={`/art-info/${id}`}>
             <CardDetails>
-               <ArtTitle>{art.title || 'Unknown title'}</ArtTitle>
-               <Author>{art.artist_title || 'Unknown artist'}</Author>
+               <ArtTitle>{title || 'Unknown title'}</ArtTitle>
+               <Author>{artist_title || 'Unknown artist'}</Author>
                <Public>Public</Public>
             </CardDetails>
          </Link>

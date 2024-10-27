@@ -1,5 +1,5 @@
+import { colors } from '@constants/colors';
 import styled from 'styled-components';
-import { colors } from '../../constants/colors';
 
 export const HugeIcon = styled.img`
    height: 55px;

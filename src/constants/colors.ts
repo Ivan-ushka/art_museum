@@ -4,7 +4,7 @@ export const colors = {
    white: '#FFFFFF',
    background: '#F9F9F9',
    yellow: '#E0A449',
-   backgroundYellow: 'rgba(251, 215, 178, 0.3)',
+   backgroundYellow: '#FBD7B24D',
    black: '#000',
    grey: '#6C757D',
    gradient: 'linear-gradient(90deg, #343333 38.05%, #484848 69.22%, #282828 98.98%)',

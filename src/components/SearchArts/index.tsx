@@ -1,15 +1,18 @@
-import React, { FC, useEffect, useState } from 'react';
-import { Art } from '../../http/interfaces';
-import { GridContainer, PositionRelative } from './styled';
-import { Title } from '../Title';
+import { getSearchArtList } from '@api/ArtActions';
+import { CenteredFlex, NoResultFound, Padding } from '@pages/styled';
+import { validateSearchTerm } from '@utils/validationUtils';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
+
+import { Art } from '@/interfaces/interfaces';
+
+import useDebounce from '../../utils/hooks/useDebounce';
 import { LargeArtCard } from '../Cards/LargeArtCard';
+import { Loader } from '../Loader';
 import { Pagination } from '../Pagination';
-import { CenteredFlex, NoResultFound, Padding } from '../../pages/styled';
-import { getSearchArtList } from '../../http/ArtActions';
 import { SearchInput } from '../SearchInput';
-import useDebounce from '../../hooks/useDebounce';
-import Loader from '../Loader';
-import SortArts from '../SortArts';
+import { SortArts } from '../SortArts';
+import { Title } from '../Title';
+import { GridContainer, PositionRelative } from './styled';
 
 interface SearchArtsProps {
    setError: (error: Error | null) => void;
@@ -26,57 +29,30 @@ export const SearchArts: FC<SearchArtsProps> = ({ setError }) => {
    const [isLoading, setIsLoading] = useState<boolean>(true);
 
    useEffect(() => {
-      (async () => {
-         setIsLoading(true);
-         try {
-            const response = await getSearchArtList(dataToSearch, currentPage);
-            setSearchArtList(response);
-         } catch (e) {
-            setError(e as Error);
-         }
-         setIsLoading(false);
-      })();
-   }, [currentPage, setError]);
-
-   const validateSearchTerm = (term: string) => {
-      if (term.length === 0) {
-         setSearchValidationMessage('');
-         return true;
-      }
-      console.log(1);
-      if (term.length <= 2) {
-         console.log(2);
-         setSearchValidationMessage('Message length should be at least 3 letters');
-         return false;
-      }
-      if (term.length > 40) {
-         setSearchValidationMessage('Message length should be less than 40 letters');
-         return false;
-      }
-      setSearchValidationMessage('');
-      return true;
-   };
-
-   useEffect(() => {
       if (validateSearchTerm(debouncedSearchTerm)) {
-         (async () => {
-            setIsLoading(true);
-            try {
-               const response = await getSearchArtList(debouncedSearchTerm);
+         setSearchValidationMessage('');
+         setIsLoading(true);
+
+         getSearchArtList(debouncedSearchTerm, currentPage)
+            .then(response => {
                setSearchArtList(response);
-            } catch (e) {
+            })
+            .catch(e => {
                setError(e as Error);
-            }
-            setIsLoading(false);
-         })();
+            })
+            .finally(() => {
+               setIsLoading(false);
+            });
+      } else {
+         setSearchValidationMessage('Message length should be from 2 to 40');
       }
-   }, [debouncedSearchTerm, setError]);
+   }, [debouncedSearchTerm, currentPage, setError]);
 
    function handleChangePage(page: number) {
       setCurrentPage(page);
    }
 
-   const handleDataToSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+   const handleDataToSearch = (event: ChangeEvent<HTMLInputElement>) => {
       setDataToSearch(event.target.value);
    };
 

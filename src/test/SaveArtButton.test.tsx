@@ -1,8 +1,9 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
+import { SaveArtButton } from '@components/SaveArtButton';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SaveArtButton from '../components/SaveArtButton';
+import React from 'react';
 
 describe('SaveArtButton Component', () => {
    beforeEach(() => {

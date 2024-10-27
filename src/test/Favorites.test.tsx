@@ -1,8 +1,9 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import Favorites from '../pages/favorites/Favorites';
 import '@testing-library/jest-dom';
+
+import { Favorites } from '@pages/favorites/Favorites';
+import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('Favorites Component', () => {
    beforeEach(() => {

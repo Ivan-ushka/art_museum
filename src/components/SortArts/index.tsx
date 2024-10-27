@@ -1,5 +1,8 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react';
-import { Art } from '../../http/interfaces';
+import { sortCard } from '@utils/sortUtils';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
+
+import { Art } from '@/interfaces/interfaces';
+
 import { SelectContainer, SelectWrapper, StyledSelect } from './styled';
 
 interface SortArtsProps {
@@ -7,21 +10,11 @@ interface SortArtsProps {
    setArtList: (artList: Art[]) => void;
 }
 
-const SortArts: FC<SortArtsProps> = ({ artList, setArtList }) => {
+export const SortArts: FC<SortArtsProps> = ({ artList, setArtList }) => {
    const [howToSort, setHowToSort] = useState<string>('');
 
-   function sortCard() {
-      if (howToSort === 'A-Z') {
-         setArtList([...artList].sort((a, b) => a.title.localeCompare(b.title)));
-      } else if (howToSort === 'Z-A') {
-         setArtList([...artList].sort((a, b) => b.title.localeCompare(a.title)));
-      } else {
-         return setArtList(artList);
-      }
-   }
-
    useEffect(() => {
-      sortCard();
+      setArtList(sortCard({ artList, howToSort }));
    }, [howToSort]);
 
    const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -40,5 +33,3 @@ const SortArts: FC<SortArtsProps> = ({ artList, setArtList }) => {
       </SelectContainer>
    );
 };
-
-export default SortArts;
