@@ -18,7 +18,7 @@ export const SmallArtCard: FC<CardProps> = ({ art, art: { id, imageUrl } }) => {
                <img
                   className='small-card-image'
                   src={imageUrl}
-                  alt={`Dont found img ${id}`}
+                  alt={`Dont found ${id}`}
                />
             ) : (
                <img className='small-card-image' src={images.museum} alt='museum' />

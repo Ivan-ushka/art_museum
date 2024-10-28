@@ -13,7 +13,7 @@ export const SaveArtButton: FC<SaveArtButtonProp> = ({ art }) => {
 
    useEffect(() => {
       setIsInStorage(SessionStorageManager.isPaintingInStorage(art));
-   }, [art.id]);
+   }, [art]);
 
    const saveFavorites = () => {
       SessionStorageManager.savePainting(art);

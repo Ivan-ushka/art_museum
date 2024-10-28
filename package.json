@@ -24,7 +24,6 @@
       "react-hook-form": "^7.53.0",
       "react-router-dom": "^6.26.2",
       "react-scripts": "5.0.1",
-      "styled-components": "^6.1.13",
       "tsconfig-paths-webpack-plugin": "^4.1.0",
       "typescript": "^5.6.3",
       "web-vitals": "^2.1.0"
@@ -66,7 +65,6 @@
    "devDependencies": {
       "@webpack-cli/generators": "^3.0.7",
       "craco-alias": "^3.0.1",
-      "css-loader": "^7.1.2",
       "eslint": "^9.13.0",
       "eslint-config-prettier": "^9.1.0",
       "eslint-config-react-app": "^7.0.1",

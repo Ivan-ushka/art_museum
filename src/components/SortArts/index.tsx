@@ -13,7 +13,7 @@ export const SortArts: FC<SortArtsProps> = ({ artList, setArtList }) => {
 
    useEffect(() => {
       setArtList(sortCard({ artList, howToSort }));
-   }, [howToSort]);
+   }, [howToSort, setArtList]);
 
    const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
       setHowToSort(event.target.value);

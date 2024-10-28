@@ -15,7 +15,11 @@ export const LargeArtCard: FC<CardProps> = ({ art, art: { id, imageUrl } }) => {
       <div className='large-card'>
          <Link to={`/art-info/${id}`}>
             {imageUrl ? (
-               <img className='large-card-image' src={imageUrl} alt='Don`t found image' />
+               <img
+                  className='large-card-image'
+                  src={imageUrl}
+                  alt={`Dont found ${id}`}
+               />
             ) : (
                <img className='large-card-image' src={images.museum} alt='museum' />
             )}
